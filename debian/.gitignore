@@ -1,0 +1,9 @@
+*.substvars
+
+.debhelper
+debhelper-build-stamp
+files
+gflib-dev
+gflib-utils
+libgf1
+tmp

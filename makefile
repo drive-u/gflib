@@ -37,10 +37,14 @@
 
 CC = gcc 
 CFLAGS = -O
+DESTDIR=
 
-ALL =	gf_mult gf_div parity_test \
-        xor rs_encode_file rs_decode_file \
-        libgf.so.1.0.0 libgf.so.1 libgf.so
+UTILS =	gf_mult gf_div parity_test \
+        xor rs_encode_file rs_decode_file
+LIBS =  libgf.so.1.0.0 libgf.so.1 libgf.so
+INCLUDES = gflib.h
+
+ALL =   $(UTILS) $(LIBS)
 
 all:
 	@ echo "use one of the following targets: w8, w16"
@@ -51,13 +55,23 @@ w8:
 w16:
 	$(MAKE) "CFLAGS=$(CFLAGS) -DW_16 -DTABLE" $(ALL)
 
+install: $(ALL)
+	mkdir -p $(DESTDIR)/usr/bin $(DESTDIR)/usr/include $(DESTDIR)/usr/lib
+	cp $(UTILS) $(DESTDIR)/usr/bin/
+	cp -a $(LIBS) $(DESTDIR)/usr/lib/
+	cp $(INCLUDES) $(DESTDIR)/usr/include/
+
+.PHONY: install
+
 libgf.so.1.0.0: gflib.c gflib.h
-	$(CC) $(CFLAGS) -fPIC -shared -o $@ $<
+	$(CC) $(CFLAGS) $(LDFLAGS) -fPIC -shared -Wl,-soname,libgf.so.1 -o $@ $<
 
 libgf.so.1: libgf.so.1.0.0
+	$(RM) $@
 	ln -s $< $@
 
 libgf.so: libgf.so.1
+	$(RM) $@
 	ln -s $< $@
 
 # w32:

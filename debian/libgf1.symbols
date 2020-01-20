@@ -1,0 +1,16 @@
+libgf.so.1 libgf1 #MINVER#
+ gf_add_parity@Base 1.2
+ gf_condense_dispersal_matrix@Base 1.2
+ gf_fast_add_parity@Base 1.2
+ gf_fprint_matrix@Base 1.2
+ gf_invert_matrix@Base 1.2
+ gf_log@Base 1.2
+ gf_make_dispersal_matrix@Base 1.2
+ gf_make_vandermonde@Base 1.2
+ gf_matrix_multiply@Base 1.2
+ gf_modar_setup@Base 1.2
+ gf_mult_region@Base 1.2
+ gf_read_matrix@Base 1.2
+ gf_single_divide@Base 1.2
+ gf_single_multiply@Base 1.2
+ gf_write_matrix@Base 1.2
