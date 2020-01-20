@@ -1,0 +1,12 @@
+.*.swp
+*.o
+
+/gf_div
+/gf_mult
+/libgf.so
+/libgf.so.1
+/libgf.so.1.0.0
+/parity_test
+/rs_decode_file
+/rs_encode_file
+/xor
