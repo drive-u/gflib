@@ -39,6 +39,10 @@ $Revision: 1.2 $
 
 #include <stdio.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #ifdef W_8
   typedef unsigned char unit;
 #elif W_16
@@ -69,3 +73,7 @@ extern int *gf_invert_matrix(int *mat, int rows);
 extern int *gf_matrix_multiply(int *a, int *b, int rows);  /* Must be square */
 extern void gf_write_matrix(FILE *f, int *a, int rows, int cols);
 extern int *gf_read_matrix(FILE *f, int *rows, int *cols);
+
+#ifdef __cplusplus
+}
+#endif
