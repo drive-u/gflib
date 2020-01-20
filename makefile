@@ -46,10 +46,10 @@ all:
 	@ echo "use one of the following targets: w8, w16"
 
 w8:
-	make "CFLAGS=$(CFLAGS) -DW_8 -DTABLE" $(ALL)
+	$(MAKE) "CFLAGS=$(CFLAGS) -DW_8 -DTABLE" $(ALL)
 
 w16:
-	make "CFLAGS=$(CFLAGS) -DW_16 -DTABLE" $(ALL)
+	$(MAKE) "CFLAGS=$(CFLAGS) -DW_16 -DTABLE" $(ALL)
 
 libgf.so.1.0.0: gflib.c gflib.h
 	$(CC) $(CFLAGS) -fPIC -shared -o $@ $<
