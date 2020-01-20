@@ -39,7 +39,8 @@ CC = gcc
 CFLAGS = -O
 
 ALL =	gf_mult gf_div parity_test \
-        xor rs_encode_file rs_decode_file
+        xor rs_encode_file rs_decode_file \
+        libgf.so.1.0.0 libgf.so.1 libgf.so
 
 all:
 	@ echo "use one of the following targets: w8, w16"
@@ -49,6 +50,15 @@ w8:
 
 w16:
 	make "CFLAGS=$(CFLAGS) -DW_16 -DTABLE" $(ALL)
+
+libgf.so.1.0.0: gflib.c gflib.h
+	$(CC) $(CFLAGS) -fPIC -shared -o $@ $<
+
+libgf.so.1: libgf.so.1.0.0
+	ln -s $< $@
+
+libgf.so: libgf.so.1
+	ln -s $< $@
 
 # w32:
 # 	make "CFLAGS=$(CFLAGS) -DW_32 -DXOR_N_SHIFT" gfm gfd
