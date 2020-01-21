@@ -4,7 +4,7 @@ Maintainer: Shachar Shemesh <shachar@debian.org>
 Build-Depends: debhelper (>= 10)
 Standards-Version: 4.1.4
 Section: libs
-Homepage: http://web.eecs.utk.edu/~jplank/plank/gflib/
+Homepage: https://github.com/drive-u/gflib
 
 Package: gflib-dev
 Section: libdevel
@@ -12,6 +12,9 @@ Architecture: any
 Depends: libgf1 (= ${binary:Version}), ${misc:Depends}
 Description: Library for Galois-Field Arithmetic and Reed-Solomon Coding
  Procedures and Programs for Galois-Field Arithmetic and Reed-Solomon Coding.
+ .
+ Originally downloaded from http://web.eecs.utk.edu/~jplank/plank/gflib/
+ .
  This library was superseded by a newer project, available at
  http://web.eecs.utk.edu/~jplank/plank/papers/CS-07-593/
  .
@@ -22,6 +25,9 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Library for Galois-Field Arithmetic and Reed-Solomon Coding
  Procedures and Programs for Galois-Field Arithmetic and Reed-Solomon Coding.
+ .
+ Originally downloaded from http://web.eecs.utk.edu/~jplank/plank/gflib/
+ .
  This library was superseded by a newer project, available at
  http://web.eecs.utk.edu/~jplank/plank/papers/CS-07-593/
 
@@ -30,8 +36,6 @@ Architecture: any
 Depends: libgf1 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
 Description: Library for Galois-Field Arithmetic and Reed-Solomon Coding
  Procedures and Programs for Galois-Field Arithmetic and Reed-Solomon Coding.
- This library was superseded by a newer project, available at
- http://web.eecs.utk.edu/~jplank/plank/papers/CS-07-593/
  .
  This package contains command line utilities for manipulating numbers in the
  Galois field.
