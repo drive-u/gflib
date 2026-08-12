@@ -42,10 +42,12 @@ $Revision: 1.2 $
 #include <sys/time.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <stdlib.h>
+#include <string.h>
 
 /* This one is going to be in-core */
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   int i, j, *vdm, *inv, *prod, cache_size;
   int rows, cols, blocksize, orig_size;
@@ -145,7 +147,7 @@ main(int argc, char **argv)
        /*  printf("Block %2d Aft: %3d.\n", i, block[0]); */
       }
     }
-    printf(" writing  ...", buf_file); fflush(stdout);
+    printf(" writing  ..."); fflush(stdout);
     f = fopen(buf_file, "w");
     if (f == NULL) { perror(buf_file); exit(1); }
     fwrite(block, 1, blocksize, f);
@@ -153,7 +155,7 @@ main(int argc, char **argv)
     fclose(f);
   }
 
-  sprintf(buf_file, "%s-info.txt", stem, i);
+  sprintf(buf_file, "%s-info.txt", stem);
   f = fopen(buf_file, "w");
   if (f == NULL) { perror(buf_file); exit(1); }
   fprintf(f, "%d\n", orig_size);

@@ -38,11 +38,12 @@ $Revision: 1.2 $
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "gflib.h"
 #include <sys/time.h>
 
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   int i, size, iterations, check, factor, inv_f, j;
   int x, y;
