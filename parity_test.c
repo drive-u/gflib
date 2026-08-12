@@ -39,11 +39,13 @@ $Revision: 1.2 $
 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "gflib.h"
 #include <sys/time.h>
+#include <time.h>
 
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   char *y;
   char *x;
@@ -61,7 +63,7 @@ main(int argc, char **argv)
   iterations = atoi(argv[2]);
   check_end = (argv[3][0] == 'Y' || argv[3][0] == 'y');
 
-  srand48();
+  srand48((long)time(NULL));
 
   y = (char *) malloc(size);
   x = (char *) malloc(size);
@@ -85,7 +87,7 @@ main(int argc, char **argv)
     tv2.tv_sec--;
     tv2.tv_usec += 1000000;
   }
-  printf("%6d.%06d\n", tv2.tv_sec, tv2.tv_usec);
+  printf("%6ld.%06ld\n", (long)tv2.tv_sec, (long)tv2.tv_usec);
   if (check_end) {
     for (i = 0; i < size; i++) {
       if (z[i] != y[i]) printf("Error in byte %d\n", i);

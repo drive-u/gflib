@@ -43,10 +43,12 @@ $Revision: 1.2 $
 #include <sys/time.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <stdlib.h>
+#include <string.h>
 
 /* This one is going to be in-core */
 
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   int i, j, k, *vdm, *inv, *prod, cache_size;
   int rows, cols, blocksize, orig_size;
